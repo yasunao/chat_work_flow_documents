@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: .devcontainer/Dockerfile
     volumes:
       - ..:/workspaces/${LOCAL_WORKSPACE_FOLDER_BASENAME}
     command: sleep infinity
