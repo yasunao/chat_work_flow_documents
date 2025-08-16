@@ -1,6 +1,1 @@
-{
-  "name": "Ruby on Rails Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile"
-  }
-}
+{"name": "Ruby on Rails Dev Container","build": {"dockerfile": "Dockerfile"},"customizations": {"vscode": {"extensions": ["rebornix.ruby","castwide.solargraph","bung87.vscode-gemfile","ms-azuretools.vscode-docker","eamodio.gitlens"]}},"postCreateCommand": "gem install bundler --no-document && bundle install && yarn install || true","postStartCommand": "bundle check || (gem install bundler --no-document && bundle install) && yarn install || true","forwardPorts": [3000],"remoteUser": "vscode"}
