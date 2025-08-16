@@ -1,16 +1,15 @@
 FROM mcr.microsoft.com/devcontainers/ruby:3.2
 
-# Install system packages useful for Rails development, Node/Yarn for assets, and JupyterLab (optional)
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 必要なシステムパッケージ (Postgres クライアント等)
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
     postgresql-client \
-    nodejs \
-    npm \
-    python3 \
-    python3-pip \
-  && npm install -g yarn || true \
-  && gem install bundler rails --no-document \
-  && pip3 install --no-cache-dir jupyterlab \
+    curl \
   && rm -rf /var/lib/apt/lists/*
+
+# Ruby の基本ツール
+RUN gem install bundler rails --no-document
