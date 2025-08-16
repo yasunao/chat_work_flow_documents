@@ -1,0 +1,2 @@
+# chat_work_flow_documents
+仕事の手順をDropbBoxに保存し、それをAIによりベクター化してDBにキャッシュ、AIを用いてチャットしながら、必要な情報を提供するシステムです
