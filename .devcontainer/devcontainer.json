@@ -1,1 +1,26 @@
-{"name": "Ruby on Rails Dev Container (with Postgres, importmap)","dockerComposeFile": ["../docker-compose.yml"],"service": "app","workspaceFolder": "/workspace","customizations": {"vscode": {"extensions": ["rebornix.ruby","castwide.solargraph","bung87.vscode-gemfile","ms-azuretools.vscode-docker","eamodio.gitlens"]}},"postCreateCommand": "gem install bundler --no-document && bundle install || true","postStartCommand": "bundle check || (gem install bundler --no-document && bundle install)","forwardPorts": [3000],"remoteUser": "vscode"}
+{
+  "name": "Ruby on Rails Dev Container (with Postgres, importmap)",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rebornix.ruby",
+        "castwide.solargraph",
+        "bung87.vscode-gemfile",
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens"
+      ]
+    }
+  },
+  "postCreateCommand": "gem install bundler --no-document && bundle install || true",
+  "postStartCommand": "bundle check || (gem install bundler --no-document && bundle install)",
+  "forwardPorts": [3000],
+  "remoteUser": "vscode"
+}
