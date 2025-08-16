@@ -1,1 +1,24 @@
-{"name": "Ruby on Rails Dev Container (with Postgres, importmap)","dockerComposeFile": ["../docker-compose.yml"],"service": "app","workspaceFolder": "/workspace","customizations": {"vscode": {"extensions": ["rebornix.ruby","castwide.solargraph","bung87.vscode-gemfile","ms-azuretools.vscode-docker","eamodio.gitlens"]}},"postCreateCommand": "gem install bundler --no-document && bundle install || true","postStartCommand": "bundle check || (gem install bundler --no-document && bundle install)","forwardPorts": [3000],"remoteUser": "vscode"}
+{
+  "name": "Rails on Codespaces",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "files.insertFinalNewline": true
+      },
+      "extensions": [
+        "Shopify.ruby-lsp",
+        "rebornix.Ruby",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "portsAttributes": {
+    "3000": { "label": "Rails", "onAutoForward": "openBrowser" }
+  },
+  "forwardPorts": [3000],
+  "postCreateCommand": "bash .devcontainer/post-create.sh"
+}
